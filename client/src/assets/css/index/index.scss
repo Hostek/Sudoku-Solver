@@ -1,4 +1,9 @@
-@import url("https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Martian+Mono:wght@400;700&family=Ubuntu:wght@400;700&display=swap");
+
+@mixin padding-y($size) {
+    padding-bottom: $size;
+    padding-top: $size;
+}
 
 *,
 *::after,
@@ -7,8 +12,40 @@
     font-family: "Ubuntu", sans-serif;
 }
 
-$background_color: hsl(200, 83%, 5%);
+// rgb(15 23 42)
+$background_color: hsl(222, 47%, 11%);
+// $background_color: hsl(200, 83%, 5%);
 
 body {
     background-color: $background_color;
+}
+
+.menu {
+    @include padding-y(1.5rem);
+    position: sticky;
+    top: 0px;
+    background-color: black;
+    margin: 0px;
+    overflow: hidden;
+    &,
+    * {
+        font-family: "Martian Mono", monospace;
+    }
+
+    text-align: center;
+    font-size: 48px;
+    font-weight: bold;
+
+    a {
+        text-decoration: none;
+        color: white;
+
+        .red-color {
+            color: red;
+        }
+
+        .nv_a_container {
+            display: inline-block;
+        }
+    }
 }
