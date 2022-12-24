@@ -6,3 +6,9 @@
     box-sizing: border-box;
     font-family: "Ubuntu", sans-serif;
 }
+
+$background_color: hsl(200, 83%, 5%);
+
+body {
+    background-color: $background_color;
+}
