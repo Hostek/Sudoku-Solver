@@ -71,9 +71,62 @@ body {
 .game-container .game {
   border: #aeaf6e solid 6px;
   border-radius: var(--ii_border_radius);
-  width: 80vmin;
-  height: 80vmin;
+  width: 82vmin;
+  height: 82vmin;
+  padding: 1vmin;
   background-color: #767641;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+@media screen and (max-width: 800px) {
+  .game-container .game {
+    padding: 2.5vmin;
+    width: 100vmin;
+    height: 100vmin;
+  }
+}
+
+.game-container .game > .inner-square {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[3];
+      grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: (1fr)[3];
+      grid-template-rows: repeat(3, 1fr);
+  grid-column-gap: 0px;
+  grid-row-gap: 0px;
+}
+
+.game-container .game > .inner-square > input {
+  width: 40%;
+  height: 40%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+  -ms-grid-column-align: center;
+      justify-self: center;
+  background: none;
+  outline: none;
+  border: none;
+  border-bottom: black solid 2px;
+  /* Chrome, Safari, Edge, Opera */
+  /* Firefox */
+}
+
+.game-container .game > .inner-square > input::-webkit-outer-spin-button, .game-container .game > .inner-square > input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.game-container .game > .inner-square > input[type="number"] {
+  -moz-appearance: textfield;
 }
 
 .game-container .btn {

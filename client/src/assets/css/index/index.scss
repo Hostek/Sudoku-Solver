@@ -87,9 +87,59 @@ body {
     .game {
         border: $game_border_color solid 6px;
         border-radius: var(--ii_border_radius);
-        width: 80vmin;
-        height: 80vmin;
+        width: 82vmin;
+        height: 82vmin;
+        padding: 1vmin;
+
+        @media screen and (max-width: 800px) {
+            padding: 2.5vmin;
+            width: 100vmin;
+            height: 100vmin;
+        }
+
         background-color: $game_background_color;
+
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: repeat(3, 1fr);
+        grid-column-gap: 0px;
+        grid-row-gap: 0px;
+
+        & > .inner-square {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            grid-column-gap: 0px;
+            grid-row-gap: 0px;
+
+            & > input {
+                width: 40%;
+                height: 40%;
+
+                align-self: center;
+                justify-self: center;
+
+                background: none;
+                outline: none;
+                border: none;
+
+                border-bottom: black solid 2px;
+
+                /* Chrome, Safari, Edge, Opera */
+                // Remove arrows
+                &::-webkit-outer-spin-button,
+                &::-webkit-inner-spin-button {
+                    -webkit-appearance: none;
+                    margin: 0;
+                }
+
+                /* Firefox */
+                // Remove arrows
+                &[type="number"] {
+                    -moz-appearance: textfield;
+                }
+            }
+        }
     }
 
     .btn {
