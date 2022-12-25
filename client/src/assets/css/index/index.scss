@@ -5,6 +5,15 @@
     padding-top: $size;
 }
 
+@mixin margin-y($size) {
+    margin-top: $size;
+    margin-bottom: $size;
+}
+
+@mixin monoscape-font() {
+    font-family: "Martian Mono", monospace;
+}
+
 *,
 *::after,
 *::before {
@@ -13,22 +22,32 @@
 }
 
 // rgb(15 23 42)
-$background_color: hsl(222, 47%, 11%);
+$body_background_color: hsl(222, 47%, 11%);
 // $background_color: hsl(200, 83%, 5%);
 
+$game_background_color: hsl(61, 29%, 36%);
+$game_border_color: lighten($game_background_color, 20%);
+
+$btn_bg_color: hsl(128, 29%, 36%);
+$btn_hover_color: lighten($btn_bg_color, 10%);
+$btn_border_color: darken($btn_bg_color, 20%);
+
+$ii_border_radius: 1.5pc;
+
 body {
-    background-color: $background_color;
+    background-color: $body_background_color;
 }
 
 .menu {
     @include padding-y(1.5rem);
-    position: sticky;
+    // position: sticky;
     top: 0px;
     background-color: black;
     margin: 0px;
     overflow: hidden;
     &,
     * {
+        @include monoscape-font();
         font-family: "Martian Mono", monospace;
     }
 
@@ -46,6 +65,45 @@ body {
 
         .nv_a_container {
             display: inline-block;
+        }
+    }
+}
+
+.game-container {
+    @include margin-y(5vh);
+
+    display: flex;
+    align-items: center;
+
+    flex-direction: column;
+    gap: 5vh;
+
+    .game {
+        border: $game_border_color solid 6px;
+        border-radius: $ii_border_radius;
+        width: 80vmin;
+        height: 80vmin;
+        background-color: $game_background_color;
+    }
+
+    .btn {
+        @include monoscape-font();
+        background-color: $btn_bg_color;
+        cursor: pointer;
+
+        font-size: 2.4rem;
+        font-weight: bold;
+
+        border: $btn_border_color solid 6px;
+        border-radius: $ii_border_radius;
+
+        width: 70%;
+        padding: 1rem;
+
+        transition: all 150ms ease-in-out;
+
+        &:hover {
+            background-color: $btn_hover_color;
         }
     }
 }

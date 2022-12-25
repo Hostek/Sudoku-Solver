@@ -6,14 +6,15 @@ interface HomePageProps {}
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
     return (
-        <div>
+        <>
             <NavBar />
-            <div>Home Page!</div>
-            <div>
-                Link to test page: <Link to="/test">Test</Link>
-            </div>
-            <div>lorem*100</div>
-        </div>
+            <main>
+                <div className="game-container">
+                    <div className="game"></div>
+                    <button className="btn">SOLVE!</button>
+                </div>
+            </main>
+        </>
     )
 }
 
