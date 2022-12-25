@@ -11,7 +11,7 @@
   --ii_border_radius: 1.5pc;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 1000px) {
   :root {
     --ii_border_radius: 0.85pc;
   }
@@ -85,7 +85,7 @@ body {
   grid-row-gap: 0px;
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 635px) {
   .game-container .game {
     padding: 2.5vmin;
     width: 100vmin;
@@ -102,11 +102,27 @@ body {
       grid-template-rows: repeat(3, 1fr);
   grid-column-gap: 0px;
   grid-row-gap: 0px;
+  --border-size: 1px;
+  --border-left: var(--border-size);
+  --border-right: var(--border-size);
+  --border-bottom: var(--border-size);
+  --border-top: var(--border-size);
+  border-left: black solid var(--border-left);
+  border-right: black solid var(--border-right);
+  border-bottom: black solid var(--border-bottom);
+  border-top: black solid var(--border-top);
+}
+
+@media screen and (min-width: 1200px) and (min-height: 1000px) {
+  .game-container .game > .inner-square {
+    --border-size: 3px;
+  }
 }
 
 .game-container .game > .inner-square > input {
   width: 40%;
   height: 40%;
+  text-align: center;
   -ms-flex-item-align: center;
       -ms-grid-row-align: center;
       align-self: center;
@@ -129,6 +145,30 @@ body {
   -moz-appearance: textfield;
 }
 
+@media screen and (max-width: 500px) {
+  .game-container .game > .inner-square > input {
+    font-size: 70%;
+  }
+}
+
+@media screen and (min-width: 1200px) and (min-height: 600px) {
+  .game-container .game > .inner-square > input {
+    font-size: 150%;
+  }
+}
+
+@media screen and (min-width: 1200px) and (min-height: 1000px) {
+  .game-container .game > .inner-square > input {
+    font-size: 200%;
+  }
+}
+
+@media screen and (min-width: 2200px) and (min-height: 2000px) {
+  .game-container .game > .inner-square > input {
+    font-size: 400%;
+  }
+}
+
 .game-container .btn {
   font-family: "Martian Mono", monospace;
   background-color: #417648;
@@ -145,5 +185,11 @@ body {
 
 .game-container .btn:hover {
   background-color: #53975c;
+}
+
+@media screen and (min-width: 1800px) and (min-height: 1000px) {
+  .game-container .btn {
+    font-size: 3.7rem;
+  }
 }
 /*# sourceMappingURL=index.css.map */

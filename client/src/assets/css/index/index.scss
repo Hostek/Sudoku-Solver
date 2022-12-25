@@ -35,7 +35,7 @@ $btn_border_color: darken($btn_bg_color, 20%);
 :root {
     --ii_border_radius: 1.5pc;
 
-    @media screen and (max-width: 800px) {
+    @media screen and (max-width: 1000px) {
         --ii_border_radius: 0.85pc;
     }
 }
@@ -91,7 +91,7 @@ body {
         height: 82vmin;
         padding: 1vmin;
 
-        @media screen and (max-width: 800px) {
+        @media screen and (max-width: 635px) {
             padding: 2.5vmin;
             width: 100vmin;
             height: 100vmin;
@@ -112,9 +112,29 @@ body {
             grid-column-gap: 0px;
             grid-row-gap: 0px;
 
+            // border: black solid 1px;
+
+            --border-size: 1px;
+
+            --border-left: var(--border-size);
+            --border-right: var(--border-size);
+            --border-bottom: var(--border-size);
+            --border-top: var(--border-size);
+
+            border-left: black solid var(--border-left);
+            border-right: black solid var(--border-right);
+            border-bottom: black solid var(--border-bottom);
+            border-top: black solid var(--border-top);
+
+            @media screen and (min-width: 1200px) and(min-height: 1000px) {
+                --border-size: 3px;
+            }
+
             & > input {
                 width: 40%;
                 height: 40%;
+
+                text-align: center;
 
                 align-self: center;
                 justify-self: center;
@@ -138,6 +158,22 @@ body {
                 &[type="number"] {
                     -moz-appearance: textfield;
                 }
+
+                @media screen and (max-width: 500px) {
+                    font-size: 70%;
+                }
+
+                @media screen and (min-width: 1200px) and(min-height: 600px) {
+                    font-size: 150%;
+                }
+
+                @media screen and (min-width: 1200px) and(min-height: 1000px) {
+                    font-size: 200%;
+                }
+
+                @media screen and (min-width: 2200px) and(min-height: 2000px) {
+                    font-size: 400%;
+                }
             }
         }
     }
@@ -160,6 +196,10 @@ body {
 
         &:hover {
             background-color: $btn_hover_color;
+        }
+
+        @media screen and (min-width: 1800px) and(min-height: 1000px) {
+            font-size: 3.7rem;
         }
     }
 }
