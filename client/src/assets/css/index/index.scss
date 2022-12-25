@@ -32,7 +32,13 @@ $btn_bg_color: hsl(128, 29%, 36%);
 $btn_hover_color: lighten($btn_bg_color, 10%);
 $btn_border_color: darken($btn_bg_color, 20%);
 
-$ii_border_radius: 1.5pc;
+:root {
+    --ii_border_radius: 1.5pc;
+
+    @media screen and (max-width: 800px) {
+        --ii_border_radius: 0.85pc;
+    }
+}
 
 body {
     background-color: $body_background_color;
@@ -80,7 +86,7 @@ body {
 
     .game {
         border: $game_border_color solid 6px;
-        border-radius: $ii_border_radius;
+        border-radius: var(--ii_border_radius);
         width: 80vmin;
         height: 80vmin;
         background-color: $game_background_color;
@@ -95,7 +101,7 @@ body {
         font-weight: bold;
 
         border: $btn_border_color solid 6px;
-        border-radius: $ii_border_radius;
+        border-radius: var(--ii_border_radius);
 
         width: 70%;
         padding: 1rem;

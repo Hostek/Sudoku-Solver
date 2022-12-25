@@ -7,6 +7,16 @@
   font-family: "Ubuntu", sans-serif;
 }
 
+:root {
+  --ii_border_radius: 1.5pc;
+}
+
+@media screen and (max-width: 800px) {
+  :root {
+    --ii_border_radius: 0.85pc;
+  }
+}
+
 body {
   background-color: #0f1729;
 }
@@ -60,7 +70,7 @@ body {
 
 .game-container .game {
   border: #aeaf6e solid 6px;
-  border-radius: 1.5pc;
+  border-radius: var(--ii_border_radius);
   width: 80vmin;
   height: 80vmin;
   background-color: #767641;
@@ -73,7 +83,7 @@ body {
   font-size: 2.4rem;
   font-weight: bold;
   border: #1d3520 solid 6px;
-  border-radius: 1.5pc;
+  border-radius: var(--ii_border_radius);
   width: 70%;
   padding: 1rem;
   -webkit-transition: all 150ms ease-in-out;
