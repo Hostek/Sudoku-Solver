@@ -9,7 +9,7 @@ export function isSudokuLegal(
 ) {
     const sizik = grid.length
 
-    if (sizik > 8 || row > 8 || col > 8) {
+    if (sizik > 9 || row > 8 || col > 8) {
         console.error("isLegal -> is not")
         return false
     }
@@ -55,7 +55,7 @@ export function solveSudoku(
     grid: sudokuGrid,
     row: number,
     col: number
-): boolean {
+): boolean | sudokuGrid {
     if (row == 9 - 1 && col == 9) {
         return true
     }
@@ -73,8 +73,8 @@ export function solveSudoku(
         if (isSudokuLegal(grid, row, col, num)) {
             grid[row][col] = num
 
-            if (solveSudoku(grid, row, col + 1)) {
-                return true
+            if (!!solveSudoku(grid, row, col + 1)) {
+                return grid
             }
         }
 

@@ -1,5 +1,6 @@
 import { useCallback, useMemo, useState } from "react"
 import { getSquare, inputsFormat, sudokuGrid, updateSquare } from "../types"
+import { solveSudoku } from "../utils/solveSudoku"
 import useLocalStorage from "./useLocalStorage"
 
 function initialValue() {
@@ -20,8 +21,6 @@ export function useGrid() {
         "inputs",
         initialValue()
     )
-
-    console.log({ inputs })
 
     const updateSquare: updateSquare = useCallback(
         (squareNum: number) => {
@@ -66,7 +65,31 @@ export function useGrid() {
         return local_grid
     }, [getSquare])
 
-    console.log({ grid })
+    const solveSudokuFunc = useCallback(() => {
+        const res = solveSudoku(grid, 0, 0)
+
+        // console.log({ res })
+
+        if (typeof res === "boolean") {
+            return res
+        }
+
+        for (let i = 0; i < 9; i++) {
+            let square_row = Math.floor(i / 3)
+            for (let j = 0; j < 9; j++) {
+                let square_col = Math.floor(j / 3)
+
+                // const res = getSquare(square_row * 3 + square_col)(i % 3, j % 3)
+                updateSquare(square_row * 3 + square_col)(
+                    res[i][j],
+                    i % 3,
+                    j % 3
+                )
+            }
+        }
+
+        return res
+    }, [])
 
     return {
         inputs,
@@ -74,5 +97,6 @@ export function useGrid() {
         updateSquare,
         getSquare,
         grid,
+        solveSudokuFunc,
     }
 }
