@@ -41,19 +41,19 @@ export const LocalInnerSquare: React.FC<LocalProps> = ({
         const border_radius = "calc(var(--ii_border_radius) / 3)"
 
         if (no_border_bottom && no_border_left) {
-            obj["border-bottom-left-radius"] = border_radius.toString()
+            obj["borderBottomLeftRadius"] = border_radius.toString()
         }
 
         if (no_border_bottom && no_border_right) {
-            obj["border-bottom-right-radius"] = border_radius.toString()
+            obj["borderBottomRightRadius"] = border_radius.toString()
         }
 
         if (no_border_top && no_border_left) {
-            obj["border-top-left-radius"] = border_radius.toString()
+            obj["borderTopLeftRadius"] = border_radius.toString()
         }
 
         if (no_border_top && no_border_right) {
-            obj["border-top-right-radius"] = border_radius.toString()
+            obj["borderTopRightRadius"] = border_radius.toString()
         }
 
         return obj as any
