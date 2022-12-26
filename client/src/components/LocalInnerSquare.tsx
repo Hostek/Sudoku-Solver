@@ -65,6 +65,8 @@ export const LocalInnerSquare: React.FC<LocalProps> = ({
             rowNum: number,
             colNum: number
         ) => {
+            // console.log({ g: e.currentTarget.value, rowNum, colNum })
+            //|| isNaNe.currentTarget.value
             if (e.currentTarget.value == "") {
                 return updateValue(0, rowNum, colNum)
             }
@@ -90,47 +92,47 @@ export const LocalInnerSquare: React.FC<LocalProps> = ({
     return (
         <div className="inner-square" style={local_styles}>
             <input
-                type="number"
+                // type="number"
                 value={localGetValue(0, 0)}
                 onChange={(e) => localUpdate(e, 0, 0)}
             />
             <input
-                type="number"
+                // type="number"
                 value={localGetValue(0, 1)}
                 onChange={(e) => localUpdate(e, 0, 1)}
             />
             <input
-                type="number"
+                // type="number"
                 value={localGetValue(0, 2)}
                 onChange={(e) => localUpdate(e, 0, 2)}
             />
             <input
-                type="number"
+                // type="number"
                 value={localGetValue(1, 0)}
                 onChange={(e) => localUpdate(e, 1, 0)}
             />
             <input
-                type="number"
+                // type="number"
                 value={localGetValue(1, 1)}
                 onChange={(e) => localUpdate(e, 1, 1)}
             />
             <input
-                type="number"
+                // type="number"
                 value={localGetValue(1, 2)}
                 onChange={(e) => localUpdate(e, 1, 2)}
             />
             <input
-                type="number"
+                // type="number"
                 value={localGetValue(2, 0)}
                 onChange={(e) => localUpdate(e, 2, 0)}
             />
             <input
-                type="number"
+                // type="number"
                 value={localGetValue(2, 1)}
                 onChange={(e) => localUpdate(e, 2, 1)}
             />
             <input
-                type="number"
+                // type="number"
                 value={localGetValue(2, 2)}
                 onChange={(e) => localUpdate(e, 2, 2)}
             />
