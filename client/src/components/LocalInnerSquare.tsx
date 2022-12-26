@@ -65,6 +65,10 @@ export const LocalInnerSquare: React.FC<LocalProps> = ({
             rowNum: number,
             colNum: number
         ) => {
+            if (e.currentTarget.value == "") {
+                return updateValue(0, rowNum, colNum)
+            }
+
             const val = parseInt(e.currentTarget.value)
 
             if (!isNumber(val) || val < 0 || val > 9) {
