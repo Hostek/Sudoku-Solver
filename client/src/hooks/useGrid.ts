@@ -1,5 +1,5 @@
-import { useState } from "react"
-import { inputsFormat } from "../types"
+import { useCallback, useState } from "react"
+import { getSquare, inputsFormat, updateSquare } from "../types"
 import useLocalStorage from "./useLocalStorage"
 
 function initialValue() {
@@ -21,8 +21,33 @@ export function useGrid() {
         initialValue()
     )
 
+    console.log({ inputs })
+
+    const updateSquare: updateSquare = useCallback((squareNum: number) => {
+        return (newVal: number, rowNum: number, colNum: number) => {
+            setInputs((prev) => {
+                let new_arr = [...prev]
+
+                new_arr[squareNum][rowNum * 3 + colNum] = newVal
+
+                return new_arr
+            })
+        }
+    }, [])
+
+    const getSquare: getSquare = useCallback(
+        (squareNum: number) => {
+            return (rowNum: number, colNum: number) => {
+                return inputs[squareNum][rowNum * 3 + colNum]
+            }
+        },
+        [inputs]
+    )
+
     return {
         inputs,
         setInputs,
+        updateSquare,
+        getSquare,
     }
 }
