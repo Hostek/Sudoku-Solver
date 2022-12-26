@@ -1,4 +1,5 @@
-type sudokuGrid = number[][]
+import { sudokuGrid } from "../types"
+import { isNumber } from "./isNumber"
 
 export function isSudokuLegal(
     grid: sudokuGrid,
@@ -13,7 +14,7 @@ export function isSudokuLegal(
         return false
     }
 
-    if (num > 9) {
+    if (num > 9 || !isNumber(row) || !isNumber(col)) {
         return false
     }
 
