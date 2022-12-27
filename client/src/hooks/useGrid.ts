@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react"
 import { getSquare, inputsFormat, sudokuGrid, updateSquare } from "../types"
-import { solveSudoku } from "../utils/solveSudoku"
+import { isLegalGrid, solveSudoku } from "../utils/solveSudoku"
 import useLocalStorage from "./useLocalStorage"
 
 function initialValue() {
@@ -68,6 +68,10 @@ export function useGrid() {
     }, [getSquare])
 
     const solveSudokuFunc = useCallback(() => {
+        if (!isLegalGrid(grid)) {
+            return false
+        }
+
         const res = solveSudoku(grid, 0, 0)
 
         console.log({ res })

@@ -205,4 +205,10 @@ body {
 .game-container .btn.red:hover {
   background-color: #975365;
 }
+
+.error-msg {
+  color: red;
+  font-size: 2.5rem;
+  font-weight: bold;
+}
 /*# sourceMappingURL=index.css.map */

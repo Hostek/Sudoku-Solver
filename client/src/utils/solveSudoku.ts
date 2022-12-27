@@ -1,6 +1,73 @@
 import { sudokuGrid } from "../types"
 import { isNumber } from "./isNumber"
 
+export function isLegalGrid(grid: sudokuGrid) {
+    for (let i = 0; i < 9; i++) {
+        for (let j = 0; j < 9; j++) {
+            grid[i][j] = Math.abs(grid[i][j])
+        }
+    }
+
+    // check rows
+    for (let i = 0; i < 9; i++) {
+        let arr: boolean[] = new Array(9).fill(false)
+
+        for (let j = 0; j < 9; j++) {
+            if (grid[i][j] === 0) {
+                continue
+            }
+
+            if (arr[grid[i][j]] === true) {
+                return false
+            } else {
+                arr[grid[i][j]] = true
+            }
+        }
+    }
+
+    // check columns
+    for (let j = 0; j < 9; j++) {
+        let arr: boolean[] = new Array(9).fill(false)
+
+        for (let i = 0; i < 9; i++) {
+            if (grid[i][j] === 0) {
+                continue
+            }
+
+            if (arr[grid[i][j]] === true) {
+                return false
+            } else {
+                arr[grid[i][j]] = true
+            }
+        }
+    }
+
+    // check squares
+
+    for (let i = 0; i < 9; i++) {
+        let arr: boolean[] = new Array(9).fill(false)
+
+        for (let j = 0; j < 9; j++) {
+            let c1 = Math.floor(i / 3) * 3 + Math.floor(j / 3),
+                c2 = (i % 3) * 3 + (j % 3)
+
+            console.log({ c1 })
+
+            if (grid[c1][c2] === 0) {
+                continue
+            }
+
+            if (arr[grid[c1][c2]] === true) {
+                return false
+            } else {
+                arr[grid[c1][c2]] = true
+            }
+        }
+    }
+
+    return true
+}
+
 export function isSudokuLegal(
     grid: sudokuGrid,
     row: number,

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { useGrid } from "../../hooks/useGrid"
 import { LocalInnerSquare } from "../LocalInnerSquare"
@@ -9,6 +9,8 @@ interface HomePageProps {}
 const HomePage: React.FC<HomePageProps> = ({}) => {
     const { getSquare, updateSquare, solveSudokuFunc, clearAllInputs } =
         useGrid()
+
+    const [info, setInfo] = useState<string>("")
 
     return (
         <>
@@ -67,10 +69,16 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                             updateValue={updateSquare(8)}
                         />
                     </div>
+                    {info && <div className="error-msg">{info}</div>}
                     <button
                         className="btn"
                         onClick={() => {
-                            solveSudokuFunc()
+                            setInfo("")
+                            const res = solveSudokuFunc()
+
+                            if (!!!res) {
+                                setInfo("Solution does not exists.")
+                            }
                         }}
                     >
                         SOLVE!
@@ -79,6 +87,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                         className="btn red"
                         onClick={() => {
                             clearAllInputs()
+                            setInfo("")
                         }}
                     >
                         CLEAR ALL!
