@@ -146,7 +146,7 @@ body {
 }
 
 .game-container .game > .inner-square > input[data-color="blue"] {
-  color: #93b89d;
+  color: #b2cdb9;
 }
 
 @media screen and (max-width: 500px) {

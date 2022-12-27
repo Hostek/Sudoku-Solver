@@ -51,7 +51,7 @@ export function isLegalGrid(grid: sudokuGrid) {
             let c1 = Math.floor(i / 3) * 3 + Math.floor(j / 3),
                 c2 = (i % 3) * 3 + (j % 3)
 
-            console.log({ c1 })
+            // console.log({ c1 })
 
             if (grid[c1][c2] === 0) {
                 continue

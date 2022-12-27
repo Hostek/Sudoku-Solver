@@ -7,8 +7,13 @@ import NavBar from "../NavBar"
 interface HomePageProps {}
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
-    const { getSquare, updateSquare, solveSudokuFunc, clearAllInputs } =
-        useGrid()
+    const {
+        getSquare,
+        updateSquare,
+        solveSudokuFunc,
+        clearAllInputs,
+        unsolveSudoku,
+    } = useGrid()
 
     const [loading, setLoading] = useState(false)
     const [info, setInfo] = useState("")
@@ -84,7 +89,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                             setLoading(true)
                             setError("")
                             solveSudokuFunc().then((res) => {
-                                console.log({ res })
+                                // console.log({ res })
                                 if (!!!res) {
                                     setError("Solution does not exists.")
                                 }
@@ -95,7 +100,15 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                     >
                         SOLVE!
                     </button>
-                    <button className="btn blue" disabled={loading}>
+                    <button
+                        className="btn blue"
+                        disabled={loading}
+                        onClick={() => {
+                            unsolveSudoku()
+                            setInfo("")
+                            setError("")
+                        }}
+                    >
                         UNSOLVE!
                     </button>
                     <button

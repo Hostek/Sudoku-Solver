@@ -90,7 +90,7 @@ export function useGrid() {
             to_string += solveSudoku.toString().replaceAll("\n", "")
             to_string += " ; return solveSudoku(grid, row, col)"
 
-            console.log({ to_string })
+            // console.log({ to_string })
 
             instance.postMessage({
                 grid,
@@ -100,7 +100,7 @@ export function useGrid() {
             instance.onmessage = (message) => {
                 const res = message.data
 
-                console.log({ res })
+                // console.log({ res })
 
                 if (typeof res === "boolean") {
                     resolve(res as any)
@@ -126,10 +126,28 @@ export function useGrid() {
         })
     }, [updateSquare, getSquare, grid])
 
-    console.log({ grid })
+    // console.log({ grid })
 
     const clearAllInputs = useCallback(() => {
         setInputs(initialValue())
+    }, [])
+
+    const unsolveSudoku = useCallback(() => {
+        setInputs((prev) => {
+            let newArr = [...prev]
+
+            newArr = newArr.map((arr) => {
+                return arr.map((val) => {
+                    if (val < 0) {
+                        return 0
+                    } else {
+                        return val
+                    }
+                })
+            })
+
+            return newArr
+        })
     }, [])
 
     return {
@@ -140,5 +158,6 @@ export function useGrid() {
         grid,
         solveSudokuFunc,
         clearAllInputs,
+        unsolveSudoku,
     }
 }
