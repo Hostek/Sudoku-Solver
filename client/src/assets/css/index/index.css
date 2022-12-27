@@ -145,6 +145,10 @@ body {
   -moz-appearance: textfield;
 }
 
+.game-container .game > .inner-square > input[data-color="blue"] {
+  color: #b2cdb9;
+}
+
 @media screen and (max-width: 500px) {
   .game-container .game > .inner-square > input {
     font-size: 70%;
@@ -191,5 +195,40 @@ body {
   .game-container .btn {
     font-size: 3.7rem;
   }
+}
+
+.game-container .btn.red {
+  background-color: #76414f;
+  border-color: #351d23;
+}
+
+.game-container .btn.red:hover {
+  background-color: #975365;
+}
+
+.game-container .btn.blue {
+  background-color: #416c76;
+  border-color: #1d3035;
+}
+
+.game-container .btn.blue:hover {
+  background-color: #538a97;
+}
+
+.info-msg {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+.error-msg {
+  color: red;
+}
+
+.footer {
+  text-align: center;
+  background-color: black;
+  color: white;
+  padding: 2rem;
+  font-size: 1.6rem;
 }
 /*# sourceMappingURL=index.css.map */

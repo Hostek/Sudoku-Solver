@@ -1,13 +1,24 @@
-import React from "react"
+import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { useGrid } from "../../hooks/useGrid"
+import Footer from "../Footer"
 import { LocalInnerSquare } from "../LocalInnerSquare"
 import NavBar from "../NavBar"
 
 interface HomePageProps {}
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
-    const { getSquare, updateSquare, solveSudokuFunc } = useGrid()
+    const {
+        getSquare,
+        updateSquare,
+        solveSudokuFunc,
+        clearAllInputs,
+        unsolveSudoku,
+    } = useGrid()
+
+    const [loading, setLoading] = useState(false)
+    const [info, setInfo] = useState("")
+    const [error, setError] = useState("")
 
     return (
         <>
@@ -66,16 +77,55 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                             updateValue={updateSquare(8)}
                         />
                     </div>
+
+                    {info && <div className="info-msg">{info}</div>}
+
+                    {error && <div className="info-msg error-msg">{error}</div>}
+
                     <button
                         className="btn"
+                        disabled={loading}
                         onClick={() => {
-                            solveSudokuFunc()
+                            setInfo("Loading...")
+                            setLoading(true)
+                            setError("")
+                            solveSudokuFunc().then((res) => {
+                                // console.log({ res })
+                                if (!!!res) {
+                                    setError("Solution does not exists.")
+                                }
+                                setInfo("")
+                                setLoading(false)
+                            })
                         }}
                     >
                         SOLVE!
                     </button>
+                    <button
+                        className="btn blue"
+                        disabled={loading}
+                        onClick={() => {
+                            unsolveSudoku()
+                            setInfo("")
+                            setError("")
+                        }}
+                    >
+                        UNSOLVE!
+                    </button>
+                    <button
+                        className="btn red"
+                        onClick={() => {
+                            clearAllInputs()
+                            setInfo("")
+                            setError("")
+                        }}
+                        disabled={loading}
+                    >
+                        CLEAR ALL!
+                    </button>
                 </div>
             </main>
+            <Footer />
         </>
     )
 }

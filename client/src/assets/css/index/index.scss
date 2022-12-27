@@ -32,6 +32,14 @@ $btn_bg_color: hsl(128, 29%, 36%);
 $btn_hover_color: lighten($btn_bg_color, 10%);
 $btn_border_color: darken($btn_bg_color, 20%);
 
+$red_color: hsl(344, 29%, 36%);
+$darker_red_color: darken($red_color, 20%);
+$lighter_red_color: lighten($red_color, 10%);
+
+$blue_color: hsl(192, 29%, 36%);
+$darker_blue_color: darken($blue_color, 20%);
+$lighter_blue_color: lighten($blue_color, 10%);
+
 :root {
     --ii_border_radius: 1.5pc;
 
@@ -159,6 +167,10 @@ body {
                     -moz-appearance: textfield;
                 }
 
+                &[data-color="blue"] {
+                    color: hsl(136, 21%, 75%);
+                }
+
                 @media screen and (max-width: 500px) {
                     font-size: 70%;
                 }
@@ -201,5 +213,38 @@ body {
         @media screen and (min-width: 1800px) and(min-height: 1000px) {
             font-size: 3.7rem;
         }
+
+        &.red {
+            background-color: $red_color;
+            border-color: $darker_red_color;
+            &:hover {
+                background-color: $lighter_red_color;
+            }
+        }
+
+        &.blue {
+            background-color: $blue_color;
+            border-color: $darker_blue_color;
+            &:hover {
+                background-color: $lighter_blue_color;
+            }
+        }
     }
+}
+
+.info-msg {
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.error-msg {
+    color: red;
+}
+
+.footer {
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 2rem;
+    font-size: 1.6rem;
 }

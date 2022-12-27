@@ -84,7 +84,9 @@ export const LocalInnerSquare: React.FC<LocalProps> = ({
 
     const localGetValue = useCallback(
         (rowNum: number, colNum: number) => {
-            return getValue(rowNum, colNum) || ""
+            const val = getValue(rowNum, colNum)
+
+            return Math.abs(val) || ""
         },
         [getValue]
     )
@@ -95,46 +97,55 @@ export const LocalInnerSquare: React.FC<LocalProps> = ({
                 // type="number"
                 value={localGetValue(0, 0)}
                 onChange={(e) => localUpdate(e, 0, 0)}
+                data-color={getValue(0, 0) < 0 ? "blue" : "black"}
             />
             <input
                 // type="number"
                 value={localGetValue(0, 1)}
                 onChange={(e) => localUpdate(e, 0, 1)}
+                data-color={getValue(0, 1) < 0 ? "blue" : "black"}
             />
             <input
                 // type="number"
                 value={localGetValue(0, 2)}
                 onChange={(e) => localUpdate(e, 0, 2)}
+                data-color={getValue(0, 2) < 0 ? "blue" : "black"}
             />
             <input
                 // type="number"
                 value={localGetValue(1, 0)}
                 onChange={(e) => localUpdate(e, 1, 0)}
+                data-color={getValue(1, 0) < 0 ? "blue" : "black"}
             />
             <input
                 // type="number"
                 value={localGetValue(1, 1)}
                 onChange={(e) => localUpdate(e, 1, 1)}
+                data-color={getValue(1, 1) < 0 ? "blue" : "black"}
             />
             <input
                 // type="number"
                 value={localGetValue(1, 2)}
                 onChange={(e) => localUpdate(e, 1, 2)}
+                data-color={getValue(1, 2) < 0 ? "blue" : "black"}
             />
             <input
                 // type="number"
                 value={localGetValue(2, 0)}
                 onChange={(e) => localUpdate(e, 2, 0)}
+                data-color={getValue(2, 0) < 0 ? "blue" : "black"}
             />
             <input
                 // type="number"
                 value={localGetValue(2, 1)}
                 onChange={(e) => localUpdate(e, 2, 1)}
+                data-color={getValue(2, 1) < 0 ? "blue" : "black"}
             />
             <input
                 // type="number"
                 value={localGetValue(2, 2)}
                 onChange={(e) => localUpdate(e, 2, 2)}
+                data-color={getValue(2, 2) < 0 ? "blue" : "black"}
             />
         </div>
     )
