@@ -10,7 +10,9 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
     const { getSquare, updateSquare, solveSudokuFunc, clearAllInputs } =
         useGrid()
 
-    const [info, setInfo] = useState<string>("")
+    const [loading, setLoading] = useState(false)
+    const [info, setInfo] = useState("")
+    const [error, setError] = useState("")
 
     return (
         <>
@@ -69,16 +71,26 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                             updateValue={updateSquare(8)}
                         />
                     </div>
-                    {info && <div className="error-msg">{info}</div>}
+
+                    {info && <div className="info-msg">{info}</div>}
+
+                    {error && <div className="info-msg error-msg">{error}</div>}
+
                     <button
                         className="btn"
+                        disabled={loading}
                         onClick={() => {
-                            setInfo("")
-                            const res = solveSudokuFunc()
-
-                            if (!!!res) {
-                                setInfo("Solution does not exists.")
-                            }
+                            setInfo("Loading...")
+                            setLoading(true)
+                            setError("")
+                            solveSudokuFunc().then((res) => {
+                                console.log({ res })
+                                if (!!!res) {
+                                    setError("Solution does not exists.")
+                                }
+                                setInfo("")
+                                setLoading(false)
+                            })
                         }}
                     >
                         SOLVE!
@@ -88,7 +100,9 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                         onClick={() => {
                             clearAllInputs()
                             setInfo("")
+                            setError("")
                         }}
+                        disabled={loading}
                     >
                         CLEAR ALL!
                     </button>

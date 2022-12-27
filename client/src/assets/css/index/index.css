@@ -206,9 +206,12 @@ body {
   background-color: #975365;
 }
 
-.error-msg {
-  color: red;
+.info-msg {
   font-size: 2.5rem;
   font-weight: bold;
+}
+
+.error-msg {
+  color: red;
 }
 /*# sourceMappingURL=index.css.map */
