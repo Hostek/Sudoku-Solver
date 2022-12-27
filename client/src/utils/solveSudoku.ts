@@ -55,9 +55,9 @@ export function solveSudoku(
     grid: sudokuGrid,
     row: number,
     col: number
-): boolean | sudokuGrid {
+): false | sudokuGrid {
     if (row == 9 - 1 && col == 9) {
-        return true
+        return grid
     }
 
     if (col == 9) {

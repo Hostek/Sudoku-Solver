@@ -68,7 +68,7 @@ export function useGrid() {
     const solveSudokuFunc = useCallback(() => {
         const res = solveSudoku(grid, 0, 0)
 
-        // console.log({ res })
+        console.log({ res })
 
         if (typeof res === "boolean") {
             return res
@@ -91,6 +91,12 @@ export function useGrid() {
         return res
     }, [])
 
+    // console.log({ grid })
+
+    const clearAllInputs = useCallback(() => {
+        setInputs(initialValue())
+    }, [])
+
     return {
         inputs,
         setInputs,
@@ -98,5 +104,6 @@ export function useGrid() {
         getSquare,
         grid,
         solveSudokuFunc,
+        clearAllInputs,
     }
 }

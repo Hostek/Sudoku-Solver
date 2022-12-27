@@ -7,7 +7,8 @@ import NavBar from "../NavBar"
 interface HomePageProps {}
 
 const HomePage: React.FC<HomePageProps> = ({}) => {
-    const { getSquare, updateSquare, solveSudokuFunc } = useGrid()
+    const { getSquare, updateSquare, solveSudokuFunc, clearAllInputs } =
+        useGrid()
 
     return (
         <>
@@ -74,7 +75,14 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                     >
                         SOLVE!
                     </button>
-                    <button className="btn red">CLEAR ALL!</button>
+                    <button
+                        className="btn red"
+                        onClick={() => {
+                            clearAllInputs()
+                        }}
+                    >
+                        CLEAR ALL!
+                    </button>
                 </div>
             </main>
         </>
