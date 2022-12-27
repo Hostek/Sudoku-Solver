@@ -145,6 +145,10 @@ body {
   -moz-appearance: textfield;
 }
 
+.game-container .game > .inner-square > input[data-color="blue"] {
+  color: #93b89d;
+}
+
 @media screen and (max-width: 500px) {
   .game-container .game > .inner-square > input {
     font-size: 70%;

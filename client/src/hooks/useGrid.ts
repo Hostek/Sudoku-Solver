@@ -56,7 +56,9 @@ export function useGrid() {
             for (let j = 0; j < 9; j++) {
                 let square_col = Math.floor(j / 3)
 
-                const res = getSquare(square_row * 3 + square_col)(i % 3, j % 3)
+                const res = Math.abs(
+                    getSquare(square_row * 3 + square_col)(i % 3, j % 3)
+                )
 
                 local_grid[i].push(res)
             }
@@ -79,19 +81,18 @@ export function useGrid() {
             for (let j = 0; j < 9; j++) {
                 let square_col = Math.floor(j / 3)
 
-                // const res = getSquare(square_row * 3 + square_col)(i % 3, j % 3)
-                updateSquare(square_row * 3 + square_col)(
-                    res[i][j],
-                    i % 3,
-                    j % 3
-                )
+                const square_num = square_row * 3 + square_col
+
+                const mn = getSquare(square_num)(i % 3, j % 3) === 0 ? -1 : 1
+
+                updateSquare(square_num)(mn * res[i][j], i % 3, j % 3)
             }
         }
 
         return res
-    }, [])
+    }, [updateSquare, getSquare])
 
-    // console.log({ grid })
+    console.log({ grid })
 
     const clearAllInputs = useCallback(() => {
         setInputs(initialValue())
