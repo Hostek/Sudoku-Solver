@@ -36,6 +36,10 @@ $red_color: hsl(344, 29%, 36%);
 $darker_red_color: darken($red_color, 20%);
 $lighter_red_color: lighten($red_color, 10%);
 
+$blue_color: hsl(192, 29%, 36%);
+$darker_blue_color: darken($blue_color, 20%);
+$lighter_blue_color: lighten($blue_color, 10%);
+
 :root {
     --ii_border_radius: 1.5pc;
 
@@ -215,6 +219,14 @@ body {
             border-color: $darker_red_color;
             &:hover {
                 background-color: $lighter_red_color;
+            }
+        }
+
+        &.blue {
+            background-color: $blue_color;
+            border-color: $darker_blue_color;
+            &:hover {
+                background-color: $lighter_blue_color;
             }
         }
     }

@@ -95,6 +95,9 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                     >
                         SOLVE!
                     </button>
+                    <button className="btn blue" disabled={loading}>
+                        UNSOLVE!
+                    </button>
                     <button
                         className="btn red"
                         onClick={() => {
