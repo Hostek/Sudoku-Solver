@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import { Link } from "react-router-dom"
 import { useGrid } from "../../hooks/useGrid"
+import Footer from "../Footer"
 import { LocalInnerSquare } from "../LocalInnerSquare"
 import NavBar from "../NavBar"
 
@@ -124,6 +125,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                     </button>
                 </div>
             </main>
+            <Footer />
         </>
     )
 }
