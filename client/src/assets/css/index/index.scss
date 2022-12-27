@@ -32,6 +32,10 @@ $btn_bg_color: hsl(128, 29%, 36%);
 $btn_hover_color: lighten($btn_bg_color, 10%);
 $btn_border_color: darken($btn_bg_color, 20%);
 
+$red_color: hsl(344, 29%, 36%);
+$darker_red_color: darken($red_color, 20%);
+$lighter_red_color: lighten($red_color, 10%);
+
 :root {
     --ii_border_radius: 1.5pc;
 
@@ -200,6 +204,14 @@ body {
 
         @media screen and (min-width: 1800px) and(min-height: 1000px) {
             font-size: 3.7rem;
+        }
+
+        &.red {
+            background-color: $red_color;
+            border-color: $darker_red_color;
+            &:hover {
+                background-color: $lighter_red_color;
+            }
         }
     }
 }

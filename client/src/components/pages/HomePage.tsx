@@ -74,6 +74,7 @@ const HomePage: React.FC<HomePageProps> = ({}) => {
                     >
                         SOLVE!
                     </button>
+                    <button className="btn red">CLEAR ALL!</button>
                 </div>
             </main>
         </>

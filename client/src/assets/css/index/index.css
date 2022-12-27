@@ -192,4 +192,13 @@ body {
     font-size: 3.7rem;
   }
 }
+
+.game-container .btn.red {
+  background-color: #76414f;
+  border-color: #351d23;
+}
+
+.game-container .btn.red:hover {
+  background-color: #975365;
+}
 /*# sourceMappingURL=index.css.map */
