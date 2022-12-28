@@ -88,7 +88,7 @@ export function useGrid() {
             to_string += isSudokuLegal.toString().replaceAll("\n", "")
             to_string += " ; "
             to_string += solveSudoku.toString().replaceAll("\n", "")
-            to_string += " ; return solveSudoku(grid, row, col)"
+            to_string += ` ; return ${solveSudoku.name}(grid, row, col)`
 
             // console.log({ to_string })
 
