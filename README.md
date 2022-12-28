@@ -1,6 +1,8 @@
 # Sudoku Solver
 Page that will solve sudoku **automatically** for you!
 
+Live demo: https://hostek.github.io/Sudoku-Solver/
+
 ## Structure
 
 | Codebase              |      Description          |
